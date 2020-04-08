@@ -1,0 +1,25 @@
+---
+project_name: go-with-github-workflow
+
+release:
+  github:
+    owner: ccojocar
+    name: go-with-github-workflow
+
+builds:
+  - main : ./
+    binary: go-with-github-workflow
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+    ldflags: -X main.Version={{.Version}} -X main.GitTag={{.Tag}} -X main.BuildDate={{.Date}}
+    env:
+      - CGO_ENABLED=0
+
+archive:
+  files:
+    - README.md
+    - LICENSE.txt
