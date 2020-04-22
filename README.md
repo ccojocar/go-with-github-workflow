@@ -2,7 +2,7 @@
 
 A Go project which uses a GitHub workflow to run the tests and release on new tag to master branch. 
 
-Also uses a GitHub action to run the gosec security scanner.
+In addition, it uses a GitHub action to run the gosec security scanner.
 
 ## Relese 
 
