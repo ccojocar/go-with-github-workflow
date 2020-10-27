@@ -11,3 +11,4 @@ The [release](.github/workflows/release.yml) can be triggered as follows:
 go tag v1.0.0 -m "Initial Release"
 git push origin v1.0.0
 ```
+
