@@ -2,6 +2,8 @@
 project_name: go-with-github-workflow
 
 release:
+  extra_files:
+    - glob: ./bom.json
   github:
     owner: ccojocar
     name: go-with-github-workflow
@@ -15,6 +17,7 @@ builds:
       - windows
     goarch:
       - amd64
+      - arm64
     ldflags: -X main.Version={{.Version}} -X main.GitTag={{.Tag}} -X main.BuildDate={{.Date}}
     env:
       - CGO_ENABLED=0
