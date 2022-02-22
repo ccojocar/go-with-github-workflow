@@ -2,8 +2,8 @@
 project_name: go-with-github-workflow
 
 release:
-  # extra_files:
-    # - glob: ./bom.json
+  extra_files:
+    - glob: ./bom.json
   github:
     owner: ccojocar
     name: go-with-github-workflow
