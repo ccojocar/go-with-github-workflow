@@ -3,7 +3,7 @@ project_name: go-with-github-workflow
 
 release:
   extra_files:
-    - glob: /tmp/bom.json
+    - glob: ./bom.json
   github:
     owner: ccojocar
     name: go-with-github-workflow
