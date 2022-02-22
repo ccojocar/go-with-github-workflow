@@ -23,6 +23,11 @@ jobs:
         uses: sigstore/cosign-installer@main
         with:
           cosign-release: 'v1.5.2'
+      - name: Store Cosign private key in a file
+        run: 'echo "$COSIGN_KEY" > /tmp/cosign.key'
+        shell: bash
+        env:
+          COSIGN_KEY: ${{secrets.COSIGN_KEY}}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -62,11 +67,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           push: true
           build-args: GO_VERSION=1.17
-      - name: Store Cosign private key in a file
-        run: 'echo "$COSIGN_KEY" > /tmp/cosign.key'
-        shell: bash
-        env:
-          COSIGN_KEY: ${{secrets.COSIGN_KEY}}
       - name: Sign Docker Image
         run: cosign sign -key /tmp/cosign.key ${TAGS}
         env:
